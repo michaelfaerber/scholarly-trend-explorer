@@ -1,1 +1,1 @@
-# scholarly-trend-miner
+# scholarly-trend-explorer
