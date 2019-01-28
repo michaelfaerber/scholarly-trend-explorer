@@ -63,10 +63,10 @@ app.css.append_css({'external_url': 'https://rawgit.com/lwileczek/Dash/master/un
 #    'text': '#0080A5'
 #}   
 
-# White background, blue text
+# White background, black text
 colours = {
     'background': '#ffffff',
-    'text': '#0080A5'
+    'text': '#001100'
 }   
 
 # White Logo for black background
@@ -85,12 +85,12 @@ app.layout = html.Div(style={'backgroundColor': colours['background'],
                 'color': colours['text']
             }
     ),
-    html.P(children='This demo allows the user to see the trends in noun phrases or Wikipedia entities either monthly or yearly. It also allows the user'
-        'to find which "cluster" a noun phrase is in and get the trend of that cluster across years, along with the other words in that cluster.' 
-        'Finally, the user can select a cluster (after looking'
-        'at the graph of trends of all clusters which is visible by clicking the radio button "Clusters" and look at the words from that cluster',
+    html.P(children='This demo allows the user to see trends in noun phrases or Wikipedia entities either monthly or yearly. It also allows the user '
+        'to find which "cluster" a noun phrase is in and get the trend of that cluster across years, along with the other words in that cluster. ' 
+        'Finally, the user can select a cluster -- after selecting the radio button "Clusters" and looking '
+        'at the graph of trends of all clusters -- and view all the words from that cluster.',
             style={
-                'textAlign': 'center',
+                'textAlign': 'justify',
                 'color': colours['text'],
                 'fontSize': '1.1em',
             }
@@ -113,10 +113,13 @@ app.layout = html.Div(style={'backgroundColor': colours['background'],
                 'fontSize': '1.4em',
                 'margin-left': '1%'
             }, className='setorlabel'),
+        html.Div([
         dcc.Dropdown(
         id='cluster_dropdown',
         className='cluster_dropdown',
-        placeholder='Choose a cluster to get phrases from that cluster')], id='dropdown_div', style={'display': 'none'}),
+        placeholder='Choose a cluster to get phrases from that cluster')], id='dropdown_div', style={'display': 'none'})
+        ], 
+        style={'width': '75%', 'margin-left': '1%'}),
 
     html.Div([
         html.Div([
@@ -169,7 +172,8 @@ app.layout = html.Div(style={'backgroundColor': colours['background'],
     #                                                 'margin-right': 'auto', 'width': '20%', 'display': 'block'}),
     html.Div(id='output3'),
     html.Div(id='output1'),
-    html.Div(id='output2')
+    html.Div(id='output2'),
+    
 
 ])
 
@@ -289,9 +293,9 @@ def set_dropdown_options(termtype, dropdown_style):
     [Input('type_of_term', 'value')])
 def set_placeholder(termtype):
     """ Sets input placeholder based on the radio buttons selected"""
-    placeholder = 'E.g. search: "machine learning, model validation"' if termtype == 'Noun phrases'\
-            else 'E.g. search: "machine learning, model validation": each search term will automatically be converted to http://en.wikipedia.org/wiki/<search_term>' \
-            if termtype == 'Entity mentions' else 'E.g. model validation (one phrase only)'
+    placeholder = 'E.g. search: "machine learning, deep learning"' if termtype == 'Noun phrases'\
+            else 'E.g. search: "machine learning, deep learning": each search term will automatically be converted to http://en.wikipedia.org/wiki/<search_term>' \
+            if termtype == 'Entity mentions' else 'E.g. deep learning (one phrase only)'
     return placeholder
 
 @app.callback(
