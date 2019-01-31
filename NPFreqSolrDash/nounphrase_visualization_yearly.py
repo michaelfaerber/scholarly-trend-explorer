@@ -182,7 +182,7 @@ app.css.append_css({'external_url': 'https://rawgit.com/lwileczek/Dash/master/un
 # White background, blue text
 colours = {
     'background': '#ffffff',
-    'text': '#0080A5'
+    'text': '#001100'
 }   
 app.layout = html.Div(style={'backgroundColor': colours['background'],
                              'height':'100vh', 'width': '100%'},

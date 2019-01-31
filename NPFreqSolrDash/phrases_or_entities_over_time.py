@@ -50,7 +50,27 @@ def phrases_df_notfound_message(nounphrase):
             )
 
 app = dash.Dash(__name__)
-
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        {%metas%}
+        <title>{%title%}</title>
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+        </footer>
+        <div><strong>About us:</strong> This is a research prototype developed by Michael F&#xe4;rber and Ashwath Sampath at the University of Freiburg, Germany. 
+        <br/> <strong>Contact:</strong> michael.faerber@cs.uni-freiburg.de
+        <br/> The code can be found at <a href="https://github.com/michaelfaerber/scholarly-trend-explorer/" target="_noblank">this Github repository</a>. 
+    </body>
+</html>
+'''
 # Add the default Dash CSS, and some custom (very simple) CSS to remove the undo button
 # app.css.append_css({'external_url': 'https://www.jsdelivr.com/package/npm/normalize.css'})
 #app.css.append_css({'external_url': 'https://unpkg.com/sakura.css/css/sakura.css'})
@@ -72,19 +92,25 @@ colours = {
 # White Logo for black background
 #image_filename = 'assets/GitHub_Logo_White.png' GitHub_Logo
 # Black logo for white background
-image_filename = 'assets/GitHub_Logo.png'
-encoded_image = base64.b64encode(open(image_filename, 'rb').read())
+#image_filename = 'assets/GitHub_Logo.png'
+#encoded_image = base64.b64encode(open(image_filename, 'rb').read())
+
+main_img_filename = 'assets/scholarsight-logo.png'
+scholar_image = base64.b64encode(open(main_img_filename, 'rb').read())
+
 app.layout = html.Div(style={'backgroundColor': colours['background'],
                              'height':'100vh', 'width': '100%'},
                       children=[ 
-    html.A(html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), style={'width':'10%', 'height': '9%', 'float': 'right'}), 
-       href='https://github.com/tf-dbis-uni-freiburg/arxiv-cs-analysis', target='_blank'),
-    html.H2(children='Scientific Trend Miner',
-            style={
-                'textAlign': 'center',
-                'color': colours['text']
-            }
-    ),
+    #html.A(html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), style={'width':'10%', 'height': '9%', 'margin-right': 'auto', 'margin-left':'auto', 'display': 'block', 'float': 'right'}), 
+    #   href='https://github.com/michaelfaerber/scholarly-trend-explorer/', target='_blank'),
+    html.Img(src='data:image/png;base64,{}'.format(scholar_image.decode()), style={'width':'30%', 'height': '15%', 'display': 'block','margin-left': 'auto',
+                                                                                   'margin-right': 'auto'}),
+    #html.H2(children='Scientific Trend Miner',
+    #        style={
+    #            'textAlign': 'center',
+    #            'color': colours['text']
+    #        }
+    #),
     html.P(children='This demo allows the user to see trends in noun phrases or Wikipedia entities either monthly or yearly. It also allows the user '
         'to find which "cluster" a noun phrase is in and get the trend of that cluster across years, along with the other words in that cluster. ' 
         'Finally, the user can select a cluster -- after selecting the radio button "Clusters" and looking '
@@ -470,7 +496,7 @@ def create_second_graph(termtype, n_clicks, input_box):
             ]
 
         layout = go.Layout(
-                    title = "Document frequency trends of all 10 clusters over years".format(input_box),
+                    title = "Document frequency trends of all 50 clusters over years".format(input_box),
                     xaxis = {'title': 'Year', 'titlefont': {'size': 20}, 'tickfont': {'size': 18}},
                     yaxis = {'title': 'z-Score of Cluster', 'ticksuffix': '%', 'titlefont': {'size': 20}, 'tickfont': {'size': 18}},
                     plot_bgcolor = colours['background'],
