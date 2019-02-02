@@ -1,5 +1,7 @@
 # scholarly-trend-explorer
 
+Before execution, the Apache Solr indexes need to be created (one for noun phrases, one for Wikipedia entities), and these indexes need to be populated. The Python indexing programs and the Solr configuration files are provided under Indexing/.
+
 Execution:
 ```
 python[3] phrases_or_entities_over_time.py 
