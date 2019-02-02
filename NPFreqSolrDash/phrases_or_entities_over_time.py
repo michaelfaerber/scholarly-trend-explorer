@@ -55,7 +55,7 @@ app.index_string = '''
 <html>
     <head>
         {%metas%}
-        <title>{%title%}</title>
+        <title>scholarsight</title>
         {%favicon%}
         {%css%}
     </head>
@@ -103,7 +103,7 @@ app.layout = html.Div(style={'backgroundColor': colours['background'],
                       children=[ 
     #html.A(html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), style={'width':'10%', 'height': '9%', 'margin-right': 'auto', 'margin-left':'auto', 'display': 'block', 'float': 'right'}), 
     #   href='https://github.com/michaelfaerber/scholarly-trend-explorer/', target='_blank'),
-    html.Img(src='data:image/png;base64,{}'.format(scholar_image.decode()), style={'width':'30%', 'height': '15%', 'display': 'block','margin-left': 'auto',
+    html.Img(src='data:image/png;base64,{}'.format(scholar_image.decode()), style={'max-width':'auto', 'height': 'auto', 'display': 'block','margin-left': 'auto',
                                                                                    'margin-right': 'auto'}),
     #html.H2(children='Scientific Trend Miner',
     #        style={
@@ -513,4 +513,4 @@ def create_second_graph(termtype, n_clicks, input_box):
         return dcc.Graph(id='clustergraph', figure=cluster_graph)
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port="8053", debug="on")
+    app.run_server(host='0.0.0.0', port="8053")#, debug="on")
