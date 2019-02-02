@@ -1,6 +1,8 @@
 # scholarly-trend-explorer
 
-Before execution, the Apache Solr indexes need to be created (one for noun phrases, one for Wikipedia entities), and these indexes need to be populated. The Python indexing programs and the Solr configuration files are provided under Indexing/.
+Before execution, the required Apache Solr indexes need to be created and populated. 
+Three indices are required: one for noun phrases, one for Wikipedia entities, and a third intermediate index (arxiv_metadata) which is used to populate the published date in the first 2 indices from Arxiv's metadata.
+The Python indexing programs and the Solr configuration files are provided under Indexing/.
 
 Execution:
 ```
