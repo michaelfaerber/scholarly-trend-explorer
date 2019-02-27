@@ -65,7 +65,9 @@ app.index_string = '''
             {%config%}
             {%scripts%}
         </footer>
-        <div><strong>About us:</strong> This is a research prototype developed by Michael F&#xe4;rber and Ashwath Sampath at the University of Freiburg, Germany. 
+        <div><strong>About us:</strong> 
+This is a research prototype developed by Michael F&#xe4;rber (University of Freiburg, Germany), Ashwath Sampath (University of Freiburg, Germany),
+ Chifumi Nishioka (Kyoto University, Japan), and Adam Jatowt (Kyoto University, Japan).
         <br/> <strong>Contact:</strong> michael.faerber@cs.uni-freiburg.de
         <br/> The code can be found at <a href="https://github.com/michaelfaerber/scholarly-trend-explorer/" target="_noblank">this Github repository</a>. 
     </body>
@@ -253,13 +255,13 @@ def set_label(termtype, timeperiod):
             else 'Enter a phrase and show its cluster together with its other concepts:'
     return label
 
-'''@app.callback(
+@app.callback(
     Output('setorlabel', 'children'),
     [Input('type_of_term', 'value')])
 def set_or_label(termtype):
     """ Sets OR Label only if the clusters radio button is selected"""
     if termtype == 'Clusters':
-        return 'Or'''
+        return 'Or'
 
 @app.callback(
     Output('dropdown_div', 'style'),
@@ -513,4 +515,4 @@ def create_second_graph(termtype, n_clicks, input_box):
         return dcc.Graph(id='clustergraph', figure=cluster_graph)
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port="8053")#, debug="on")
+    app.run_server(host='0.0.0.0', port="8053", debug="off")

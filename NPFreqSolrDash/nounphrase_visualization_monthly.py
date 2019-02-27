@@ -466,7 +466,7 @@ def show_graph_unique_not_callback(n_clicks, input_box):
                             'size': 15
                           },
                     showlegend=True,
-                    legend = {'font': {'size': 18}}
+                    legend = {'font': {'size': 18}, 'x':  0, 'y': -0.5, 'orientation': 'h'}
                     )
     
     if input_box != '':

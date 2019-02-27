@@ -199,7 +199,7 @@ colours = {
 app.layout = html.Div(style={'backgroundColor': colours['background'],
                              'height':'100vh', 'width': '100%'},
                       children=[
-    html.H2(children='Distribution of Noun phrase URLs over time',
+    html.H2(children='Distribution of Entity mentions over time',
             style={
                 'textAlign': 'center',
                 'color': colours['text']
@@ -262,7 +262,8 @@ def show_graph_total(n_clicks, input_box):
                     font= {
                             'color': colours['text']
                           },
-                    showlegend=True
+                    showlegend=True, 
+                    legend={'x': 1, 'y': 1.2}
                     )
     
     if input_box != '':
@@ -341,7 +342,8 @@ def show_graph_unique(n_clicks, input_box):
                     font= {
                             'color': colours['text']
                           },
-                    showlegend=True
+                    showlegend=True, 
+                    legend={'x': 1, 'y': 1.2}
                     )
     
     if input_box != '':
@@ -413,7 +415,9 @@ def show_graph_total(n_clicks, input_box):
                     font= {
                             'color': colours['text']
                           },
-                    showlegend=True
+                    showlegend=True, 
+                    legend={'x': 1, 'y': 1.2}
+
                     )
     
     if input_box != '':
@@ -480,7 +484,7 @@ def show_graph_unique_not_callback(n_clicks, input_box):
                     title = 'Percentage of papers containing chosen entity mention(s) per Month',
                     xaxis = {'title': 'Publication date', 'tickformat': '%b %y', 'tick0': '2007-04-30',
                              'dtick': 'M2', 'range': ['2007-03-25', '2018-01-25'], 'titlefont': {'size': 20}, 'tickfont': {'size': 15}},
-                    yaxis = {'title': 'Percentage of papers with entity mention', 'ticksuffix': '%', 'titlefont': {'size': 20}, 'tickfont': {'size': 18}},
+                    yaxis = {'title': 'Percentage of papers with entity mention', 'ticksuffix': '%', 'titlefont': {'size': 19}, 'tickfont': {'size': 18}},
                     plot_bgcolor = colours['background'],
                     paper_bgcolor = colours['background'],
                     barmode = 'stack',
@@ -490,7 +494,7 @@ def show_graph_unique_not_callback(n_clicks, input_box):
                             'size': 15
                           },
                     showlegend=True,
-                    legend = {'font': {'size': 18}}
+                    legend = {'font': {'size': 18}, 'x':  0, 'y': -0.5, 'orientation': 'h'}
                     )
     
     if input_box != '':

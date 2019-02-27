@@ -237,7 +237,7 @@ def show_graph_total(n_clicks, input_box):
     
     # Store the layout with the appropriate title and y axis labels for the graph
     layout_total = go.Layout(
-                    title = 'Percentage of occurrences of chosen noun phrase(s) per Year',
+                    title = '',
                     xaxis = {'title': 'Publication year', 'tickformat': '%Y', 'tick0': '2007-12-31',
                              'dtick': 'M12', 'range': ['2007-07-01', '2018-07-01']},
                     yaxis = {'title': 'Percentage of phrase occurrences', 'ticksuffix': '%'},
@@ -461,7 +461,7 @@ def show_graph_unique_not_callback(n_clicks, input_box):
                             'size': 15
                           },
                     showlegend=True,
-                    legend = {'font': {'size': 20}}
+                    legend = {'font': {'size': 18}, 'x':  0, 'y': -0.4, 'orientation': 'h'}
                     )
     
     if input_box != '':
