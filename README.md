@@ -1,4 +1,4 @@
-# scholarly-trend-explorer
+# ScholarSight: Visualizing Temporal Trends of Scientific Concepts
 
 Before execution, the required Apache Solr indexes need to be created and populated. 
 Three indices are required: one for noun phrases, one for Wikipedia entities, and a third intermediate index (arxiv_metadata) which is used to populate the published date in the first 2 indices from Arxiv's metadata.
@@ -42,3 +42,18 @@ A demo of the system is available online at http://scholarsight.org/.
 The system has been designed and implemented by Michael Färber and Ashwath Sampath. Feel free to reach out to us in case of questions or suggestions:
 
 [Michael Färber](https://sites.google.com/view/michaelfaerber), michael.faerber@cs&#46;uni-freiburg&#46;de
+
+## How to Cite
+Please cite our work as follows:
+```
+@inproceedings{Faerber2019JCDL,
+  author    = {Michael F{\"{a}}rber and
+               Chifumi Nishioka and
+               Adam Jatowt},
+  title     = "{ScholarSight: Visualizing Temporal Trends of Scientific Concepts}",
+  booktitle = "{Proceedings of the 19th ACM/IEEE on Joint Conference on Digital Libraries}",
+  location  = "{Urbana-Champaign, Illinois, USA}",
+  pages     = {},
+  year      = {2019}
+}
+```
